@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.half {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  border: 1px solid blue;
+  border-radius: 50%;
+  animation: Loading 2s linear infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.half::before {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  background: linear-gradient(to top, transparent, #3e8cc0);
+  background-size: calc(var(--r) / 2) var(--r);
+  background-repeat: no-repeat;
+  -webkit-mask: radial-gradient(circle, transparent 130px, #000 130px);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.half::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  color: #50f0d0;
+  background: currentColor;
+  border-radius: 50%;
+  box-shadow: 0 0 10px, 0 0 20px, 0 0 30px, 0 0 40px, 0 0 50px, 0 0 60px,
+    0 0 70px, 0 0 80px, 0 0 90px, 0 0 100px;
+  z-index: 10;
 }
 
-.App-link {
-  color: #61dafb;
+.half:nth-child(2) {
+  animation-delay: -1s;
+  filter: hue-rotate(300deg);
 }
 
-@keyframes App-logo-spin {
+@keyframes Loading {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.nav {
+  padding: 20px 80px;
+  background-color: #dec6a5;
+  box-shadow: 0 5px 15px #dec6a5;
+  z-index: 999;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+.hero button {
+  background-image: url(/src/assets/images/button.png);
+  background-color: transparent;
+  color: #088178;
+  border: 0;
+  padding: 14px 80px 14px 65px;
+  cursor: pointer;
+  font-weight: 700;
+  display: flex;
+}
+.card {
+  box-shadow: 0 5px 15px #dec6a5;
 }
