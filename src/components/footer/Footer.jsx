@@ -23,11 +23,11 @@ const Footer = () => {
                         <span className="text-[#ffbd27]"> Special Offers </span>
                     </p>
                 </div>
-                <div className="form flex w-2/5 h-[50px]">
+                <div className="form flex w-2/5 h-[50px] mt-2">
                     <input
                         type="text"
                         placeholder="Your Email Address"
-                        className="h-full px-5 text-sm w-full border border-transparent rounded-l outline-none"
+                        className="h-full px-5 text-sm w-auto lg:w-full border border-transparent rounded-l outline-none"
                     />
                     <button className="border-none text-white px-8 rounded-r font-bold tracking-widest cursor-pointer bg-[#088178] whitespace-nowrap">
                         Sign Up

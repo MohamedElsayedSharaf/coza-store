@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { logout } from "../../features/slices/authSlice";
 import { FaShoppingCart, FaUser, FaBars, FaTimes } from "react-icons/fa";
-import { CiSearch } from "react-icons/ci";
 import { Tooltip } from "@material-tailwind/react";
 import logo from "../../assets/images/logo-01.png";
 import Cart from "../cart/Cart";
@@ -22,11 +21,11 @@ const Navbar = () => {
     const { name } = user;
     const dispatch = useDispatch();
     return (
-        <nav className="nav">
+        <nav className="nav md:space-x-4">
             <div className="container mx-auto px-4 flex justify-between items-center">
                 <div>
-                    <Link to="/" className="text-2xl font-bold tracking-wide">
-                        <img src={logo} alt="" />
+                    <Link to="/" className="font-bold tracking-wide">
+                        <img src={logo} alt="" className="w-24 h-5" />
                     </Link>
                 </div>
                 <div className="text-black font-bold hidden md:flex items-center space-x-6">
@@ -67,43 +66,46 @@ const Navbar = () => {
                         Contact
                     </Link>
                 </div>
-                <div className="flex items-center space-x-6">
-                    <CiSearch className="hidden sm:flex  text-2xl text-black rounded-full hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110" />
-                    <FaUser onClick={() => dispatch(logout())} className="hidden sm:flex text-2xl text-black rounded-full hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110">
-                    </FaUser>
+                <div className="flex items-center justify-between space-x-6">
+                    <FaUser
+                        onClick={() => dispatch(logout())}
+                        className="hidden sm:flex text-2xl text-black rounded-full hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
+                    ></FaUser>
                     <Tooltip content="Sign out" placement="bottom">
                         <p className="font-inter text-sm font-medium tracking-normal leading-none cursor-pointer">
                             Hi {name.charAt("0").toUpperCase() + name.slice(1)}
                         </p>
                     </Tooltip>
-                    <div className="relative cursor-pointer" onClick={handleOpen}>
-                        {totalAmount > 0 ? (
-                            <>
-                                <FaShoppingCart
-                                    to="/cart"
-                                    className="text-2xl text-black bg-transparent rounded-full hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
-                                />
-                                <span className="absolute bottom-4 left-5 inline-flex items-center justify-center w-4 h-4 bg-light-green-500 rounded-full text-xs font-bold text-white">
-                                    {totalAmount}
-                                </span>
-                            </>
-                        ) : (
-                            <FaShoppingCart className="text-2xl text-black bg-transparent rounded-full hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110" />
-                        )}
-                        {open && <Cart openModel={open} setOpen={setOpen}></Cart>}
+                    <div className="flex items-center">
+                        <div className="relative cursor-pointer" onClick={handleOpen}>
+                            {totalAmount > 0 ? (
+                                <>
+                                    <FaShoppingCart
+                                        to="/cart"
+                                        className="text-2xl text-black bg-transparent rounded-full hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
+                                    />
+                                    <span className="absolute bottom-4 left-5 inline-flex items-center justify-center w-4 h-4 bg-light-green-500 rounded-full text-xs font-bold text-white">
+                                        {totalAmount}
+                                    </span>
+                                </>
+                            ) : (
+                                <FaShoppingCart className="text-2xl text-black bg-transparent rounded-full hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110" />
+                            )}
+                            {open && <Cart openModel={open} setOpen={setOpen}></Cart>}
+                        </div>
                     </div>
-                </div>
-                <div className="md:hidden flex items-center">
-                    <button
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="focus:outline-none text-black"
-                    >
-                        {isMobileMenuOpen ? (
-                            <FaTimes className="text-2xl" />
-                        ) : (
-                            <FaBars className="text-2xl my-auto ml-5" />
-                        )}
-                    </button>
+                    <div className="md:hidden flex items-center">
+                        <button
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            className="focus:outline-none text-black"
+                        >
+                            {isMobileMenuOpen ? (
+                                <FaTimes className="text-2xl" />
+                            ) : (
+                                <FaBars className="text-2xl my-auto ml-5" />
+                            )}
+                        </button>
+                    </div>
                 </div>
             </div>
             <div className={`${isMobileMenuOpen ? "block" : "hidden"} md:hidden`}>

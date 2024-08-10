@@ -19,7 +19,7 @@ const NavButtons = () => {
     const dispatch = useDispatch();
     return (
         <div>
-            <div className="flex items-center justify-center p-8 bg-white">
+            <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-8 space-x-2 items-center space-y-3 p-8 bg-white">
                 {buttons.map((button, index) => (
                     <div key={index} className="mr-4">
                         <Link to={"/filteredProducts/" + button}>
