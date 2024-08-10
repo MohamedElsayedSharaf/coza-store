@@ -30,7 +30,7 @@ const Navbar = () => {
                 </div>
                 <div className="text-black font-bold hidden md:flex items-center space-x-6">
                     <Link
-                        to="/coza-store"
+                        to="/"
                         className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
                     >
                         Home
