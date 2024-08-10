@@ -17,7 +17,7 @@ function App() {
     <div className="app">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={authUser ? <Main /> : <Login />}></Route>
+            <Route path="/coza-store" element={authUser ? <Main /> : <Login />}></Route>
             <Route path="/filteredProducts/:type" element={<FilteredProducts />}></Route>
             <Route path="/filteredProducts/:type/:id" element={<SingleProduct />}></Route>
           </Routes>
