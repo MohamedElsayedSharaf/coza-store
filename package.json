@@ -1,5 +1,5 @@
 {
-  "homepage": "",
+  "homepage": "https://mohamedelsyaedsharaf.github.io/",
   "name": "my-project",
   "version": "0.1.0",
   "private": true,
@@ -19,6 +19,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -29,6 +31,9 @@
       "react-app/jest"
     ]
   },
+  "resolutions": {
+  "@babel/helper-environment-visitor": "^7.22.20"
+},
   "browserslist": {
     "production": [
       ">0.2%",
