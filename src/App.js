@@ -11,19 +11,23 @@ import Login from "./components/login/Login";
 function App() {
   const user = useSelector((state) => state.user.user);
   const { authUser } = user;
-
-  return (
-    <div className="app">
+  console.log(user)
+  return  (
+    <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={authUser ? <Main /> : <Login />}></Route>
+          <Route
+            path="/"
+            element={authUser ? <Main></Main> : <Login></Login>}
+          ></Route>
+
           <Route
             path="/filteredProducts/:type"
-            element={<FilteredProducts />}
+            element={<FilteredProducts></FilteredProducts>}
           ></Route>
           <Route
             path="/filteredProducts/:type/:id"
-            element={<SingleProduct />}
+            element={<SingleProduct></SingleProduct>}
           ></Route>
         </Routes>
       </BrowserRouter>

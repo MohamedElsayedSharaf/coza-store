@@ -1,26 +1,23 @@
 {
-  "homepage": "https://mohamedelsyaedsharaf.github.io/",
-  "name": "my-project",
+  "name": "redux-store",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-tailwind/react": "^2.1.9",
-    "@reduxjs/toolkit": "^2.2.1",
-    "@testing-library/jest-dom": "^5.17.0",
+    "@material-tailwind/react": "^1.2.4",
+    "@reduxjs/toolkit": "^1.9.0",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/user-event": "^14.4.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^5.0.1",
-    "react-redux": "^9.1.0",
-    "react-router-dom": "^6.22.1",
+    "react-icons": "^5.3.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -31,9 +28,6 @@
       "react-app/jest"
     ]
   },
-  "resolutions": {
-  "@babel/helper-environment-visitor": "^7.22.20"
-},
   "browserslist": {
     "production": [
       ">0.2%",
@@ -47,7 +41,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1",
-    "tailwindcss": "^3.4.1"
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4"
   }
 }
